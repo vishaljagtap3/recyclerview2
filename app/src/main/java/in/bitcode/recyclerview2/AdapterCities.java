@@ -1,5 +1,6 @@
 package in.bitcode.recyclerview2;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,9 +18,18 @@ import androidx.recyclerview.widget.RecyclerView;
 public class AdapterCities extends RecyclerView.Adapter<AdapterCities.CityViewHolder> {
 
     private ArrayList<City> mListCities;
-
     public AdapterCities(ArrayList<City> cities) {
         mListCities = cities;
+    }
+
+    public interface OnCityClickListener {
+        public void onCityClick(City city, int position);
+    }
+
+    private OnCityClickListener mOnCityClickListener;
+
+    public void setOnCityClickListener(OnCityClickListener onCityClickListener) {
+        mOnCityClickListener = onCityClickListener;
     }
 
     class CityViewHolder extends RecyclerView.ViewHolder {
@@ -39,6 +49,17 @@ public class AdapterCities extends RecyclerView.Adapter<AdapterCities.CityViewHo
                     City city = mListCities.get(getAdapterPosition());
                     Toast.makeText(view.getContext(), "Image of " + city.getName(), Toast.LENGTH_LONG)
                             .show();
+
+                    if(mOnCityClickListener != null) {
+                        mOnCityClickListener.onCityClick(city, getAdapterPosition());
+                    }
+
+                    /*
+                    Intent intent = new Intent(view.getContext(), ActCityDetails.class);
+                    intent.putExtra("city", city);
+                    view.getContext().startActivity(intent);
+                    */
+
                 }
             });
 
@@ -57,6 +78,7 @@ public class AdapterCities extends RecyclerView.Adapter<AdapterCities.CityViewHo
     public int getItemCount() {
         return mListCities.size();
     }
+    
 
     @NonNull
     @Override

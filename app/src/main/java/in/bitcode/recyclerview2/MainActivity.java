@@ -4,7 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 
 import java.util.ArrayList;
 
@@ -39,11 +42,22 @@ public class MainActivity extends AppCompatActivity {
         mListCities.add(new City("Pune-11", R.drawable.img2, 23));
 
         mAdatperCities = new AdapterCities(mListCities);
-        mRecyclerCities.setAdapter(mAdatperCities);
+        mAdatperCities.setOnCityClickListener(new MyOnCityClickListener());
 
+        mRecyclerCities.setAdapter(mAdatperCities);
         mRecyclerCities.setLayoutManager(
                 new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         );
 
+    }
+
+    class MyOnCityClickListener implements AdapterCities.OnCityClickListener {
+
+        @Override
+        public void onCityClick(City city, int position) {
+            Intent intent = new Intent(MainActivity.this, ActCityDetails.class);
+            intent.putExtra("city", city);
+            startActivity(intent);
+        }
     }
 }
