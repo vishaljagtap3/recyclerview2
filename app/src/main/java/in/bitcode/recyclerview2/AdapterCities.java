@@ -1,6 +1,7 @@
 package in.bitcode.recyclerview2;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -93,6 +95,15 @@ public class AdapterCities extends RecyclerView.Adapter<AdapterCities.CityViewHo
 
     @Override
     public void onBindViewHolder(@NonNull CityViewHolder holder, int position) {
+
+        Random random = new Random();
+        holder.itemView.setBackgroundColor(
+                Color.rgb(
+                        Math.abs(random.nextInt()) % 255,
+                        Math.abs(random.nextInt()) % 255,
+                        Math.abs(random.nextInt()) % 255
+                )
+        );
 
         City city = mListCities.get(position);
 

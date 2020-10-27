@@ -1,36 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:orientation="vertical"
     android:padding="8dp">
 
     <ImageView
         android:id="@+id/imgCity"
         android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_alignParentLeft="true"/>
+        android:layout_height="100dp" />
 
-    <View
-        android:id="@+id/space"
-        android:layout_toRightOf="@id/imgCity"
-        android:layout_width="16dp"
-        android:layout_height="wrap_content"/>
+    <!--    <View-->
+    <!--        android:id="@+id/space"-->
+    <!--        android:layout_toRightOf="@id/imgCity"-->
+    <!--        android:layout_width="16dp"-->
+    <!--        android:layout_height="wrap_content"/>-->
 
     <TextView
-        android:textSize="25sp"
         android:id="@+id/txtName"
-        android:layout_toRightOf="@id/space"
-        android:layout_alignTop="@id/imgCity"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25sp" />
 
     <TextView
         android:id="@+id/txtPopulation"
-        android:layout_toRightOf="@id/space"
-        android:layout_below="@id/txtName"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingTop="16dp"
-        android:textSize="20sp"/>
+        android:textSize="20sp" />
 
-</RelativeLayout>
+</LinearLayout>
