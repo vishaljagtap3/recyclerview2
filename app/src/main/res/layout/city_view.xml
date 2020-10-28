@@ -10,11 +10,7 @@
         android:layout_width="100dp"
         android:layout_height="100dp" />
 
-    <!--    <View-->
-    <!--        android:id="@+id/space"-->
-    <!--        android:layout_toRightOf="@id/imgCity"-->
-    <!--        android:layout_width="16dp"-->
-    <!--        android:layout_height="wrap_content"/>-->
+    android:layout_height="wrap_content"/>-->
 
     <TextView
         android:id="@+id/txtName"

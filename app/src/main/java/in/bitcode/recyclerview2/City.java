@@ -8,6 +8,8 @@ class City implements Serializable {
     private int mImageId;
     private int mPopulation; //in lacs
 
+    public static final String KEY_CITY = "city";
+
     public City(String name, int imageId, int population) {
         mName = name;
         mImageId = imageId;
